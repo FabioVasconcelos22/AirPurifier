@@ -1,7 +1,7 @@
 {
     "C_Cpp.dimInactiveRegions": false,
     "terminal.integrated.env.linux": {
-        "PATH": "/home/fabio/.platformio/penv/bin:/home/fabio/.platformio/penv:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+        "PATH": "/home/fabio/.platformio/penv/bin:/home/fabio/.platformio/penv:/home/fabio/workspace/Scripts/:/opt/EABI/gcc-arm-none-eabi-8-2018-q4-major-linux/gcc-arm-none-eabi-8-2018-q4-major/bin/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/microchip/xc32/v1.31/bin:/opt/microchip/xc16/v1.21/bin:/opt/microchip/xc8/v1.30/bin:/opt/microchip/xc8/v1.33/bin:/opt/microchip/xc16/v1.22/bin:/opt/microchip/xc32/v1.33/bin",
         "PLATFORMIO_CALLER": "vscode"
     },
     "C_Cpp.errorSquiggles": "Disabled"

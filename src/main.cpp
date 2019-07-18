@@ -3,7 +3,7 @@
 RTC_DS3231 rtc;
 
 // Debugging
-#define DEBUG
+#undef DEBUG
 
 //Define starting time here
 uint8_t hour = 0;
@@ -52,7 +52,7 @@ void loop()
     digitalWrite(12, LOW);
     state = "Noite"; //Noite 
   }
-  else if ( (hour >= 9 && hour <= 12) || (hour >= 16 && hour <= 20) )
+  else if ( (hour >= 9 && hour <= 12) || (hour >= 16 && hour < 19) )
   {
     digitalWrite(12, HIGH);
     state = "Ligado"; //Ligado
