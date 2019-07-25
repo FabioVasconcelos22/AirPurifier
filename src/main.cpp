@@ -7,19 +7,9 @@ RTC_DS3231 rtc;
 
 //Define starting time here
 uint8_t hour = 0;
+uint8_t lasthour = 0;
 
 String state = "";
-
-/*void wait(int minutes)
-{  
-  for(int i=0; i<minutes; i++)
-  {
-    for(int j=0; j<60; j++)
-    {
-      delay(1000);
-    }
-  }
-}*/
 
 void setup()
 {
@@ -45,23 +35,7 @@ void setup()
 
 void loop()
 {
-  DateTime now = rtc.now();
- 
-  if(hour > 22 || hour < 8)
-  {
-    digitalWrite(12, LOW);
-    state = "Noite"; //Noite 
-  }
-  else if ( (hour >= 9 && hour <= 12) || (hour >= 16 && hour < 19) )
-  {
-    digitalWrite(12, HIGH);
-    state = "Ligado"; //Ligado
-  }
-  else
-  {
-    digitalWrite(12, LOW);
-    state = "Desligado"; //Desligado 
-  }
+  lasthour = hour;
 
   #ifdef DEBUG
     Serial.print("Data: "); //IMPRIME O TEXTO NO MONITOR SERIAL
@@ -90,8 +64,30 @@ void loop()
     {
       hour=0;
     }
+
   #else
+    DateTime now = rtc.now();
     hour = (uint8_t)now.hour();
-    Serial.println((String)hour+ "h - "+ state);
   #endif
+
+  if(hour > 22 || hour < 8)
+  {
+    digitalWrite(12, LOW);
+    state = "Noite"; //Noite 
+  }
+  else if ( (hour >= 9 && hour <= 12) || (hour >= 16 && hour < 19) )
+  {
+    digitalWrite(12, HIGH);
+    state = "Ligado"; //Ligado
+  }
+  else
+  {
+    digitalWrite(12, LOW);
+    state = "Desligado"; //Desligado 
+  }
+
+  if(lasthour!=hour)
+  {
+    Serial.println((String)hour+ "h - "+ state);
+  }
 } 
